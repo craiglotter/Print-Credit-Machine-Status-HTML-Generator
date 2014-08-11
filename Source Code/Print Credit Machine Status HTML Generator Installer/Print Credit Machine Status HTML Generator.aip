@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" version="1.9" modules="professional" RootPath=".">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="ProductCode" Value="{C1A7694D-0B8A-4BA1-B924-7CC699F7D6C4}"/>
+    <ROW Property="ALLUSERS" Value="2"/>
+    <ROW Property="ARPCONTACT" Value="0833085018"/>
+    <ROW Property="ARPPRODUCTICON" Value="controlPanelIcon.exe"/>
+    <ROW Property="BannerBitmap" Value="installer_background.jpg"/>
+    <ROW Property="DialogBitmap" Value="installer_background_dialog.jpg"/>
+    <ROW Property="Manufacturer" Value="Craig Lotter"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductVersion" Value="1.0.0"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{20D92A24-6A19-4AC1-8096-FF857F3FF563}"/>
+    <ROW Property="ProductName" Value="Print Credit Machine Status HTML Generator"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" Directory_Parent="" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="CurrentShift_XML_Generator.exe" ComponentId="{7B5752E0-C78D-4142-B0E1-2400863E525B}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="CurrentShift_XML_Generator.exe" FullKeyPath="TARGETDIR\CurrentShift XML Generator.exe"/>
+    <ROW Component="Print_Credit_Machine_Status_HTML_Generator.exe" ComponentId="{D600F041-9588-48C2-9E0E-D66F5F2C2337}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Print_Credit_Machine_Status_HTML_Generator.exe" FullKeyPath="TARGETDIR\Print Credit Machine Status HTML Generator.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Feature_Parent="" Title="MainFeature" Description="Description" Display="2" Level="1" Directory_="TARGETDIR" Attributes="0" Components="CurrentShift_XML_Generator.exe Print_Credit_Machine_Status_HTML_Generator.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="CurrentShift_XML_Generator.exe" Component_="CurrentShift_XML_Generator.exe" FileName="Curren~1.exe|CurrentShift XML Generator.exe" Version="" Language="" Attributes="" SourcePath="..\Print Credit Machine Status HTML Generator\Required Files\CurrentShift XML Generator.exe" SelfReg="false"/>
+    <ROW File="Print_Credit_Machine_Status_HTML_Generator.exe" Component_="Print_Credit_Machine_Status_HTML_Generator.exe" FileName="PrintC~1.exe|Print Credit Machine Status HTML Generator.exe" Version="" Language="" Attributes="" SourcePath="..\Print Credit Machine Status HTML Generator\obj\Release\Print Credit Machine Status HTML Generator.exe" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Source="" Target="A higher version of [ProductName] is installed."/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR" Type="307" Source="TARGETDIR" Target="[ProgramFilesFolder]\[ProductName]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="UpgradeCode" VersionMin="" VersionMax="ProductVersion" Language="" Attributes="1025" Remove=""/>
+    <ROW UpgradeCode="UpgradeCode" VersionMin="ProductVersion" VersionMax="" Language="" Attributes="2" Remove=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMergeModsComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="Print_Credit_Machine_Status_HTML_Generator" Directory_="SHORTCUTDIR" Name="PrintC~1|Print Credit Machine Status HTML Generator" Component_="CurrentShift_XML_Generator.exe" Target="[TARGETDIR]Print Credit Machine Status HTML Generator.exe" Arguments="" Description="" Hotkey="0" Icon_="controlPanelIcon.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Uninstall" Directory_="SHORTCUTDIR" Name="Uninst~1|Uninstall" Component_="CurrentShift_XML_Generator.exe" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="" Hotkey="0" Icon_="SystemFolder_msiexec.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="SystemFolder_msiexec.exe" SourcePath="&lt;uninstall.ico&gt;" Index="0"/>
+    <ROW Name="controlPanelIcon.exe" SourcePath="..\Print Credit Machine Status HTML Generator\Images\PCMSHG.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="installer_background.jpg" SourcePath="Images\installer_background.jpg"/>
+    <ROW Name="installer_background_dialog.jpg" SourcePath="Images\installer_background_dialog.jpg"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ATTRIBUTE name="Start" value="WelcomeDlg FolderDlg VerifyReadyDlg"/>
+    <ATTRIBUTE name="Progress" value="ProgressDlg"/>
+    <ATTRIBUTE name="End" value="ExitDialog"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMediaComponent">
+    <ATTRIBUTE name="InstallationType" value="1"/>
+    <ATTRIBUTE name="MediaSize" value="0"/>
+    <ATTRIBUTE name="Compress" value="1"/>
+    <ATTRIBUTE name="Package" value="10"/>
+    <ATTRIBUTE name="PackageName" value="Release\Print Credit Machine Status HTML Generator Installer"/>
+    <ATTRIBUTE name="IconPath" value="..\Print Credit Machine Status HTML Generator\Images\PCMSHG.ico?0"/>
+  </COMPONENT>
+</DOCUMENT>
